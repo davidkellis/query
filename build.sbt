@@ -1,6 +1,7 @@
 name := "query"
 
 version := "1.0"
+licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
 
 scalaVersion := "2.11.7"
 
