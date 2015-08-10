@@ -4,7 +4,7 @@ query is a database agnostic query object library written in Scala.
 
 query represents database queries as an AST that can be traversed to emit database specific query strings.
 
-Currently there is an included generic SQL query emitter. Other query emitters could be easily implemented.
+There is currently only one query emitter, a generic SQL emitter. Other query emitters can be implemented fairly easily.
 
 ## Example:
 
@@ -22,7 +22,7 @@ scala>   val testQuery = where(
      |   )
 testQuery: Query = Query@999b951
 
-scala> emitSql(testQuery)
+scala> SqlEmitter.emit(testQuery)
 res0: String = WHERE ((height > 72) AND (age BETWEEN 10 AND 100)) OR ((firstName = 'Bob') AND (lastName = 'Kazamakis'))
 ```
 
@@ -42,6 +42,10 @@ scala> val testQuery2 = where(
      |   )
 testQuery2: Query = Query@1903b5d
 
-scala> emitSql(testQuery2)
+scala> SqlEmitter.emit(testQuery2)
 res1: String = WHERE ((height > 72) AND (age BETWEEN 10 AND 100)) OR ((firstName = 'Bob') AND (lastName = 'Kazamakis'))
 ```
+
+## Running Tests
+
+To run the test suite, run `sbt test` from the project root directory.
