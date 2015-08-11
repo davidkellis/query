@@ -70,6 +70,7 @@ class Query() {
 }
 
 object dsl {
+  def everything(): Query = new Query()
   def where(p: Predicate): Query = new Query().where(p)
   def all(predicates: Predicate*): Predicate = All(predicates)
   def any(predicates: Predicate*): Predicate = Any(predicates)
